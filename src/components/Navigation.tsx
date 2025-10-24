@@ -12,10 +12,10 @@ const Navigation = () => {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/" className="text-foreground hover:text-primary transition-colors font-medium">
               HOME
             </a>
-            <a href="#shop" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/shop" className="text-foreground hover:text-primary transition-colors font-medium">
               SHOP
             </a>
             <a href="#profile" className="text-foreground hover:text-primary transition-colors font-medium">
