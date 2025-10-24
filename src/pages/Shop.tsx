@@ -1,14 +1,15 @@
 import Navigation from "@/components/Navigation";
-import logo from "@/assets/logo.png";
+import Footer from "@/components/Footer";
+import logo from "@/assets/slme-logo.png";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const Shop = () => {
   const productRanges = [
-    { letter: "L", gradient: "from-blue-600 to-blue-400" },
-    { letter: "u", gradient: "from-yellow-700 to-yellow-500" },
-    { letter: "v", gradient: "from-pink-700 to-pink-500" },
-    { letter: "i", gradient: "from-teal-600 to-teal-400", dot: true },
+    { letter: "S", gradient: "from-blue-600 to-blue-400" },
+    { letter: "L", gradient: "from-yellow-700 to-yellow-500" },
+    { letter: "M", gradient: "from-pink-700 to-pink-500" },
+    { letter: "E", gradient: "from-teal-600 to-teal-400" },
   ];
 
   const basicProducts = [
@@ -108,13 +109,13 @@ const Shop = () => {
         <div className="relative z-10 text-center px-6">
           <img 
             src={logo} 
-            alt="LuviRoyal" 
-            className="h-48 w-48 mx-auto mb-8" 
+            alt="Sl me" 
+            className="h-48 w-48 mx-auto mb-8 animate-fade-up" 
           />
-          <h1 className="font-playfair italic text-5xl md:text-6xl text-primary mb-4">
-            Luviroyal Cards
+          <h1 className="font-playfair italic text-5xl md:text-6xl text-primary mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            Sl me Cards
           </h1>
-          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block">
+          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block animate-fade-up" style={{ animationDelay: '0.4s' }}>
             SHOP
           </h2>
         </div>
@@ -134,12 +135,10 @@ const Shop = () => {
             {productRanges.map((range, index) => (
               <Card 
                 key={index}
-                className={`aspect-[3/4] bg-gradient-to-br ${range.gradient} border-none rounded-3xl flex items-center justify-center relative overflow-hidden`}
+                className={`aspect-[3/4] bg-gradient-to-br ${range.gradient} border-none rounded-3xl flex items-center justify-center relative overflow-hidden hover-lift animate-fade-up`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {range.dot && (
-                  <div className="absolute top-12 right-1/2 transform translate-x-1/2 w-16 h-16 bg-primary rounded-full" />
-                )}
-                <span className="font-playfair italic text-9xl text-primary font-bold">
+                <span className="font-playfair text-9xl text-primary font-bold">
                   {range.letter}
                 </span>
               </Card>
@@ -150,10 +149,11 @@ const Shop = () => {
           <div className="mb-20">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {basicProducts.map((product, index) => (
-                <Card 
-                  key={index}
-                  className={`bg-navy-light border-2 ${product.borderColor} rounded-3xl p-6 space-y-4`}
-                >
+              <Card 
+                key={index}
+                className={`bg-navy-light border-2 ${product.borderColor} rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
                   <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6`}>
                     <div className="text-xl font-bold mb-1">YOUR NAME</div>
                     <div className="text-sm opacity-80">Company Name</div>
@@ -190,7 +190,8 @@ const Shop = () => {
             {epicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`bg-gradient-to-br ${product.cardBg} border-2 ${product.borderColor} rounded-3xl p-6 space-y-4`}
+                className={`bg-gradient-to-br ${product.cardBg} border-2 ${product.borderColor} rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6 relative`}>
                   <div className="absolute top-4 right-4 text-2xl">📶</div>
@@ -220,6 +221,8 @@ const Shop = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

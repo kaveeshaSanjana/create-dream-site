@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
-import logo from "@/assets/logo.png";
+import Footer from "@/components/Footer";
+import logo from "@/assets/slme-logo.png";
 import { Card } from "@/components/ui/card";
 import { Phone, MapPin, Mail } from "lucide-react";
 
@@ -18,7 +19,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "EMAIL",
-      details: ["info@luviroyal.com,", "luviroyal@gmail.com"],
+      details: ["info@slme.com,", "slme@gmail.com"],
     },
   ];
 
@@ -55,13 +56,13 @@ const Contact = () => {
         <div className="relative z-10 text-center px-6">
           <img 
             src={logo} 
-            alt="LuviRoyal" 
-            className="h-48 w-48 mx-auto mb-8" 
+            alt="Sl me" 
+            className="h-48 w-48 mx-auto mb-8 animate-fade-up" 
           />
-          <h1 className="font-playfair italic text-5xl md:text-6xl text-primary mb-4">
-            Luviroyal Cards
+          <h1 className="font-playfair italic text-5xl md:text-6xl text-primary mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            Sl me Cards
           </h1>
-          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block">
+          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block animate-fade-up" style={{ animationDelay: '0.4s' }}>
             CONTACT US
           </h2>
         </div>
@@ -76,7 +77,8 @@ const Contact = () => {
               return (
                 <Card 
                   key={index}
-                  className="bg-navy-light border-2 border-gold/40 rounded-3xl p-12 flex flex-col items-center text-center space-y-6 hover:border-gold/60 transition-all duration-300"
+                  className="bg-navy-light border-2 border-gold/40 rounded-3xl p-12 flex flex-col items-center text-center space-y-6 hover:border-gold/60 hover-lift animate-fade-up transition-all duration-300"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center">
                     <Icon className="w-12 h-12 text-navy" strokeWidth={2.5} />
@@ -99,6 +101,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

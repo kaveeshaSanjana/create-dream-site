@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import NFCSection from "@/components/NFCSection";
 import PackageSection from "@/components/PackageSection";
 import ProductsSection from "@/components/ProductsSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <NFCSection />
       <PackageSection />
       <ProductsSection />
+      <Footer />
     </div>
   );
 };

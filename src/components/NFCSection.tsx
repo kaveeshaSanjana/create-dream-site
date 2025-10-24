@@ -5,12 +5,12 @@ const NFCSection = () => {
   return (
     <section className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl text-center mb-16 text-primary font-bold tracking-wide border-b-2 border-primary pb-4 inline-block mx-auto block w-fit">
-          LUVIROYAL NFC CARDS
+        <h2 className="text-4xl md:text-5xl text-center mb-16 text-primary font-bold tracking-wide border-b-2 border-primary pb-4 inline-block mx-auto block w-fit animate-fade-up">
+          SL ME NFC CARDS
         </h2>
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-navy-light border-2 border-gold/30 rounded-3xl p-8 flex flex-col justify-center">
+          <div className="bg-navy-light border-2 border-gold/30 rounded-3xl p-8 flex flex-col justify-center hover-lift animate-slide-in-left">
             <h3 className="text-3xl font-bold text-foreground mb-6">What is NFC?</h3>
             <p className="text-muted-foreground leading-relaxed">
               Near-field communication is a set of communication protocols that enables 
@@ -20,7 +20,7 @@ const NFCSection = () => {
             </p>
           </div>
           
-          <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-8 flex items-center justify-center">
+          <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-8 flex items-center justify-center hover-glow animate-slide-in-right">
             <img 
               src={nfcPhone} 
               alt="NFC Technology" 
@@ -30,7 +30,7 @@ const NFCSection = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-8 flex items-center justify-center order-2 md:order-1">
+          <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-8 flex items-center justify-center order-2 md:order-1 hover-glow animate-slide-in-left">
             <img 
               src={nfcDemo} 
               alt="How NFC Works" 
@@ -38,7 +38,7 @@ const NFCSection = () => {
             />
           </div>
           
-          <div className="bg-navy-light border-2 border-gold/30 rounded-3xl p-8 flex flex-col justify-center order-1 md:order-2">
+          <div className="bg-navy-light border-2 border-gold/30 rounded-3xl p-8 flex flex-col justify-center order-1 md:order-2 hover-lift animate-slide-in-right">
             <h3 className="text-3xl font-bold text-foreground mb-6">How to work?</h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Tap the Our Business card on smartphone and instantly share your website, 
