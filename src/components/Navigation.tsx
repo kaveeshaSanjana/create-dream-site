@@ -21,7 +21,7 @@ const Navigation = () => {
             <a href="#profile" className="text-foreground hover:text-primary transition-colors font-medium">
               LUVIROYAL PROFILE
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary transition-colors font-medium">
+            <a href="/contact" className="text-foreground hover:text-primary transition-colors font-medium">
               CONTACT US
             </a>
             <a href="#privacy" className="text-foreground hover:text-primary transition-colors font-medium">
