@@ -29,43 +29,9 @@ const Shop = () => {
       borderColor: "border-blue-500/50",
       available: true,
     },
-    {
-      name: "METAL BASIC BLACK",
-      price: "Coming Soon",
-      bgColor: "bg-gradient-to-br from-gray-800 to-gray-900",
-      textColor: "text-gray-100",
-      borderColor: "border-teal-500/50",
-      available: false,
-    },
-    {
-      name: "METAL BASIC SILVER",
-      price: "Coming Soon",
-      bgColor: "bg-gradient-to-br from-gray-300 to-gray-400",
-      textColor: "text-gray-900",
-      borderColor: "border-teal-500/50",
-      available: false,
-    },
   ];
 
   const epicProducts = [
-    {
-      name: "EPIC WHITE",
-      price: "Rs.3,450",
-      bgColor: "bg-gray-100",
-      textColor: "text-gray-900",
-      borderColor: "border-yellow-600/50",
-      cardBg: "from-yellow-700 to-yellow-600",
-      available: true,
-    },
-    {
-      name: "EPIC BLACK",
-      price: "Rs.3,650",
-      bgColor: "bg-gray-900",
-      textColor: "text-gray-100",
-      borderColor: "border-yellow-600/50",
-      cardBg: "from-yellow-700 to-yellow-600",
-      available: true,
-    },
     {
       name: "METAL EPIC BLACK",
       price: "Coming Soon",
@@ -76,7 +42,7 @@ const Shop = () => {
       available: false,
     },
     {
-      name: "METALEPIC SILVER",
+      name: "METAL EPIC SILVER",
       price: "Coming Soon",
       bgColor: "bg-gradient-to-br from-gray-300 to-gray-400",
       textColor: "text-gray-900",
@@ -135,10 +101,10 @@ const Shop = () => {
             {productRanges.map((range, index) => (
               <Card 
                 key={index}
-                className={`aspect-[3/4] bg-gradient-to-br ${range.gradient} border-none rounded-3xl flex items-center justify-center relative overflow-hidden hover-lift animate-fade-up`}
+                className={`aspect-[3/4] bg-gradient-to-br ${range.gradient} border-none rounded-3xl flex items-center justify-center relative overflow-hidden hover-lift hover-glow animate-fade-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <span className="font-playfair text-9xl text-primary font-bold">
+                <span className="font-playfair text-9xl text-gray-900 font-bold">
                   {range.letter}
                 </span>
               </Card>
@@ -147,11 +113,11 @@ const Shop = () => {
 
           {/* Basic Range Products */}
           <div className="mb-20">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
               {basicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`glass-effect glow-border rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
+                className={`glass-effect glow-border rounded-3xl p-6 space-y-4 hover-lift hover-glow animate-fade-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                   <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6`}>
@@ -186,11 +152,11 @@ const Shop = () => {
             EPIC RANGE
           </h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {epicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`gradient-secondary glow-border rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
+                className={`gradient-secondary glow-border rounded-3xl p-6 space-y-4 hover-lift hover-glow animate-fade-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6 relative`}>
