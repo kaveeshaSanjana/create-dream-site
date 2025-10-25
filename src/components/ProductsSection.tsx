@@ -14,20 +14,6 @@ const products = [
     image: "black",
     available: true,
   },
-  {
-    name: "METAL BASIC BLACK",
-    price: "Coming Soon",
-    category: "METAL",
-    image: "metal-black",
-    available: false,
-  },
-  {
-    name: "METAL BASIC SILVER",
-    price: "Coming Soon",
-    category: "METAL",
-    image: "metal-silver",
-    available: false,
-  },
 ];
 
 const ProductsSection = () => {
@@ -38,15 +24,9 @@ const ProductsSection = () => {
           The Basic range is 4 different products.
         </h2>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        <div className="grid md:grid-cols-2 gap-8 mt-16 max-w-4xl mx-auto">
           {products.map((product, index) => (
             <div key={index} className="space-y-4">
-              {product.category && (
-                <div className="text-primary text-xl font-bold tracking-[0.3em] text-center">
-                  {product.category}
-                </div>
-              )}
-              
               <h3 className="text-2xl font-bold text-foreground text-center">
                 {product.name}
               </h3>
