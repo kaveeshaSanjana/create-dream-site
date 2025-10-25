@@ -4,7 +4,7 @@ import logo from "@/assets/slme-logo.png";
 
 const Navigation = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm border-b border-gold/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-primary/30 shadow-lg">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">

@@ -3,7 +3,7 @@ import { Plus } from "lucide-react";
 
 const PackageSection = () => {
   return (
-    <section className="py-20 px-6 bg-navy-light/50">
+    <section className="py-20 px-6 bg-card/30">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl md:text-4xl text-center mb-4 text-muted-foreground">
           WHAT'S IN OUR PACKAGE?
@@ -29,7 +29,7 @@ const PackageSection = () => {
               <Plus className="text-primary w-12 h-12" />
             </div>
             
-            <div className="bg-card border border-gold/30 rounded-2xl p-8 text-center">
+            <div className="glass-effect glow-border rounded-2xl p-8 text-center hover-lift">
               <div className="text-6xl mb-4">📱</div>
               <p className="text-foreground">
                 1 x smart business card<br />
@@ -39,7 +39,7 @@ const PackageSection = () => {
           </div>
           
           <div className="space-y-8">
-            <div className="bg-card border border-gold/30 rounded-2xl p-8 text-center">
+            <div className="glass-effect glow-border rounded-2xl p-8 text-center hover-lift">
               <div className="text-4xl mb-4">🛡️</div>
               <p className="text-foreground">
                 1 x RFID credit / debit<br />
@@ -52,7 +52,7 @@ const PackageSection = () => {
               <Plus className="text-primary w-12 h-12" />
             </div>
             
-            <div className="bg-card border border-gold/30 rounded-2xl p-8 text-center">
+            <div className="glass-effect glow-border rounded-2xl p-8 text-center hover-lift">
               <div className="text-5xl mb-4">🪙🪙</div>
               <p className="text-foreground">2 x NFC coins</p>
             </div>
@@ -61,7 +61,7 @@ const PackageSection = () => {
               <Plus className="text-primary w-12 h-12" />
             </div>
             
-            <div className="bg-card border border-gold/30 rounded-2xl p-8 text-center">
+            <div className="glass-effect glow-border rounded-2xl p-8 text-center hover-lift">
               <div className="text-4xl mb-4">📋</div>
               <p className="text-foreground">
                 1 x transparent card cover<br />

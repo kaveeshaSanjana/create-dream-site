@@ -6,10 +6,10 @@ import { Card } from "@/components/ui/card";
 
 const Shop = () => {
   const productRanges = [
-    { letter: "S", gradient: "from-blue-600 to-blue-400" },
-    { letter: "L", gradient: "from-yellow-700 to-yellow-500" },
-    { letter: "M", gradient: "from-pink-700 to-pink-500" },
-    { letter: "E", gradient: "from-teal-600 to-teal-400" },
+    { letter: "S", gradient: "from-gradient-start to-primary" },
+    { letter: "L", gradient: "from-secondary to-accent" },
+    { letter: "M", gradient: "from-accent to-primary" },
+    { letter: "E", gradient: "from-primary to-secondary" },
   ];
 
   const basicProducts = [
@@ -93,13 +93,13 @@ const Shop = () => {
       {/* Hero Section with Gradient */}
       <section className="relative pt-24 pb-32 overflow-hidden">
         {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-600 via-purple-500 to-blue-500 opacity-90" />
+        <div className="absolute inset-0 gradient-primary" />
         
         {/* Wavy Bottom Border */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg viewBox="0 0 1440 120" className="w-full h-24">
             <path
-              fill="hsl(220, 50%, 8%)"
+              fill="hsl(var(--background))"
               d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
             />
           </svg>
@@ -112,10 +112,10 @@ const Shop = () => {
             alt="Sl me" 
             className="h-48 w-48 mx-auto mb-8 animate-fade-up" 
           />
-          <h1 className="font-playfair italic text-5xl md:text-6xl text-primary mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="font-playfair italic text-5xl md:text-6xl text-white mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
             Sl me Cards
           </h1>
-          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <h2 className="text-4xl font-bold text-white tracking-wide border-b-4 border-white pb-2 inline-block animate-fade-up" style={{ animationDelay: '0.4s' }}>
             SHOP
           </h2>
         </div>
@@ -151,7 +151,7 @@ const Shop = () => {
               {basicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`bg-navy-light border-2 ${product.borderColor} rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
+                className={`glass-effect glow-border rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                   <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6`}>
@@ -168,11 +168,11 @@ const Shop = () => {
                   </div>
                   
                   {product.available ? (
-                    <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-bold">
+                    <Button className="w-full gradient-primary text-white hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] font-bold border-0">
                       BUY
                     </Button>
                   ) : (
-                    <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-bold">
+                    <Button className="w-full gradient-secondary text-white hover:shadow-[0_0_30px_hsl(var(--secondary)/0.6)] font-bold border-0">
                       SEE MORE
                     </Button>
                   )}
@@ -190,7 +190,7 @@ const Shop = () => {
             {epicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`bg-gradient-to-br ${product.cardBg} border-2 ${product.borderColor} rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
+                className={`gradient-secondary glow-border rounded-3xl p-6 space-y-4 hover-lift animate-fade-up`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6 relative`}>
@@ -208,11 +208,11 @@ const Shop = () => {
                 </div>
                 
                 {product.available ? (
-                  <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-bold">
+                  <Button className="w-full gradient-primary text-white hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] font-bold border-0">
                     BUY
                   </Button>
                 ) : (
-                  <Button className="w-full bg-foreground text-background hover:bg-foreground/90 font-bold">
+                  <Button className="w-full bg-card text-foreground hover:bg-card/80 font-bold border border-border">
                     SEE MORE
                   </Button>
                 )}

@@ -62,7 +62,7 @@ const ProductsSection = () => {
                 {product.price}
               </div>
               
-              <Card className={`aspect-[3/2] rounded-2xl overflow-hidden border-2 ${
+              <Card className={`aspect-[3/2] rounded-2xl overflow-hidden glow-border ${
                 product.image === "white" 
                   ? "bg-gray-100" 
                   : product.image === "black"
@@ -70,7 +70,7 @@ const ProductsSection = () => {
                   : product.image === "metal-black"
                   ? "bg-gradient-to-br from-gray-800 to-gray-900"
                   : "bg-gradient-to-br from-gray-300 to-gray-400"
-              } border-gold/30 flex flex-col items-center justify-center p-8`}>
+              } flex flex-col items-center justify-center p-8 hover-lift`}>
                 <div className={`text-2xl font-bold mb-2 ${
                   product.image === "white" ? "text-gray-900" : "text-gray-100"
                 }`}>
@@ -83,7 +83,7 @@ const ProductsSection = () => {
                 </div>
               </Card>
               
-              <Card className={`aspect-[3/2] rounded-2xl overflow-hidden border-2 ${
+              <Card className={`aspect-[3/2] rounded-2xl overflow-hidden glow-border ${
                 product.image === "white" 
                   ? "bg-gray-100" 
                   : product.image === "black"
@@ -91,7 +91,7 @@ const ProductsSection = () => {
                   : product.image === "metal-black"
                   ? "bg-gradient-to-br from-gray-800 to-gray-900"
                   : "bg-gradient-to-br from-gray-300 to-gray-400"
-              } border-gold/30 flex flex-col items-center justify-between p-8`}>
+              } flex flex-col items-center justify-between p-8 hover-lift`}>
                 <div className={`text-xl font-bold ${
                   product.image === "white" ? "text-gray-900" : "text-gray-100"
                 }`}>

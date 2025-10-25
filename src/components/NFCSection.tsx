@@ -10,7 +10,7 @@ const NFCSection = () => {
         </h2>
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-navy-light border-2 border-gold/30 rounded-3xl p-8 flex flex-col justify-center hover-lift animate-slide-in-left">
+          <div className="glass-effect glow-border rounded-3xl p-8 flex flex-col justify-center hover-lift animate-slide-in-left">
             <h3 className="text-3xl font-bold text-foreground mb-6">What is NFC?</h3>
             <p className="text-muted-foreground leading-relaxed">
               Near-field communication is a set of communication protocols that enables 
@@ -20,7 +20,7 @@ const NFCSection = () => {
             </p>
           </div>
           
-          <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-8 flex items-center justify-center hover-glow animate-slide-in-right">
+          <div className="gradient-secondary rounded-3xl p-8 flex items-center justify-center hover-glow animate-slide-in-right opacity-90">
             <img 
               src={nfcPhone} 
               alt="NFC Technology" 
@@ -30,7 +30,7 @@ const NFCSection = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl p-8 flex items-center justify-center order-2 md:order-1 hover-glow animate-slide-in-left">
+          <div className="gradient-secondary rounded-3xl p-8 flex items-center justify-center order-2 md:order-1 hover-glow animate-slide-in-left opacity-90">
             <img 
               src={nfcDemo} 
               alt="How NFC Works" 
@@ -38,7 +38,7 @@ const NFCSection = () => {
             />
           </div>
           
-          <div className="bg-navy-light border-2 border-gold/30 rounded-3xl p-8 flex flex-col justify-center order-1 md:order-2 hover-lift animate-slide-in-right">
+          <div className="glass-effect glow-border rounded-3xl p-8 flex flex-col justify-center order-1 md:order-2 hover-lift animate-slide-in-right">
             <h3 className="text-3xl font-bold text-foreground mb-6">How to work?</h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Tap the Our Business card on smartphone and instantly share your website, 

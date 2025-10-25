@@ -8,7 +8,7 @@ const Hero = () => {
         <img 
           src={logo} 
           alt="Sl me" 
-          className="h-64 w-64 mx-auto mb-8 drop-shadow-[0_0_30px_rgba(212,175,55,0.3)] animate-fade-up" 
+          className="h-64 w-64 mx-auto mb-8 drop-shadow-[0_0_40px_hsl(var(--primary)/0.5)] animate-fade-up hover:scale-105 transition-transform duration-500"
         />
         
         <h1 className="font-playfair italic text-5xl md:text-6xl lg:text-7xl text-primary mb-6 animate-fade-up" style={{ animationDelay: '0.2s' }}>
@@ -26,7 +26,7 @@ const Hero = () => {
         
         <Button 
           size="lg" 
-          className="bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 px-8 py-6 text-lg hover-lift animate-fade-up"
+          className="gradient-primary text-white hover:shadow-[0_0_40px_hsl(var(--primary)/0.6)] transition-all duration-300 px-8 py-6 text-lg hover-lift animate-fade-up border-0"
           style={{ animationDelay: '0.8s' }}
         >
           EXPLORE NOW
