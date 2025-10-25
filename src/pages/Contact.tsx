@@ -27,10 +27,10 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Section with Pink Gradient */}
-      <section className="relative pt-24 pb-32 overflow-hidden">
+      {/* Hero Section with Gold Gradient */}
+      <section className="relative pt-24 pb-32 overflow-hidden bg-secondary">
         {/* Gradient Background */}
-        <div className="absolute inset-0 gradient-secondary" />
+        <div className="absolute inset-0 gradient-black-gold opacity-90" />
         
         {/* Wavy Top Border */}
         <div className="absolute top-16 left-0 right-0">
@@ -57,19 +57,19 @@ const Contact = () => {
           <img 
             src={logo} 
             alt="Sl me" 
-            className="h-48 w-48 mx-auto mb-8 animate-fade-up" 
+            className="h-48 w-48 mx-auto mb-8 animate-fade-up hover-gold-shine glow-gold rounded-full" 
           />
-          <h1 className="font-playfair italic text-5xl md:text-6xl text-white mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="font-playfair italic text-5xl md:text-6xl text-gold-gradient mb-4 animate-fade-up drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]" style={{ animationDelay: '0.2s' }}>
             Sl me Cards
           </h1>
-          <h2 className="text-4xl font-bold text-white tracking-wide border-b-4 border-white pb-2 inline-block animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block animate-fade-up glow-border" style={{ animationDelay: '0.4s' }}>
             CONTACT US
           </h2>
         </div>
       </section>
 
       {/* Contact Cards Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             {contactInfo.map((contact, index) => {
@@ -77,20 +77,20 @@ const Contact = () => {
               return (
                 <Card 
                   key={index}
-                  className="glass-effect glow-border rounded-3xl p-12 flex flex-col items-center text-center space-y-6 hover-lift animate-fade-up transition-all duration-300"
+                  className="glass-gold glow-border rounded-3xl p-12 flex flex-col items-center text-center space-y-6 hover-lift hover-glow animate-fade-up transition-all duration-300 border-2 border-primary/20"
                   style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className="w-24 h-24 rounded-full gradient-primary flex items-center justify-center shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
-                    <Icon className="w-12 h-12 text-white" strokeWidth={2.5} />
+                  <div className="w-24 h-24 rounded-full gradient-gold-shine flex items-center justify-center shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+                    <Icon className="w-12 h-12 text-secondary" strokeWidth={2.5} />
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-foreground tracking-wide">
+                  <h3 className="text-2xl font-bold text-primary tracking-wide">
                     {contact.title}
                   </h3>
                   
-                  <div className="text-muted-foreground space-y-1">
+                  <div className="text-foreground space-y-1">
                     {contact.details.map((detail, idx) => (
-                      <p key={idx} className="text-lg">
+                      <p key={idx} className="text-lg font-medium">
                         {detail}
                       </p>
                     ))}

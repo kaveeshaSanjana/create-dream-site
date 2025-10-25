@@ -57,9 +57,9 @@ const Shop = () => {
       <Navigation />
       
       {/* Hero Section with Gradient */}
-      <section className="relative pt-24 pb-32 overflow-hidden">
+      <section className="relative pt-24 pb-32 overflow-hidden bg-secondary">
         {/* Gradient Background */}
-        <div className="absolute inset-0 gradient-primary" />
+        <div className="absolute inset-0 gradient-black-gold opacity-90" />
         
         {/* Wavy Bottom Border */}
         <div className="absolute bottom-0 left-0 right-0">
@@ -76,24 +76,24 @@ const Shop = () => {
           <img 
             src={logo} 
             alt="Sl me" 
-            className="h-48 w-48 mx-auto mb-8 animate-fade-up" 
+            className="h-48 w-48 mx-auto mb-8 animate-fade-up hover-gold-shine glow-gold rounded-full" 
           />
-          <h1 className="font-playfair italic text-5xl md:text-6xl text-white mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="font-playfair italic text-5xl md:text-6xl text-gold-gradient mb-4 animate-fade-up drop-shadow-[0_0_30px_rgba(255,215,0,0.5)]" style={{ animationDelay: '0.2s' }}>
             Sl me Cards
           </h1>
-          <h2 className="text-4xl font-bold text-white tracking-wide border-b-4 border-white pb-2 inline-block animate-fade-up" style={{ animationDelay: '0.4s' }}>
+          <h2 className="text-4xl font-bold text-primary tracking-wide border-b-4 border-primary pb-2 inline-block animate-fade-up glow-border" style={{ animationDelay: '0.4s' }}>
             SHOP
           </h2>
         </div>
       </section>
 
       {/* Product Range Section */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-4 text-foreground">
+          <h2 className="text-4xl font-bold text-center mb-4 text-gold-gradient drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]">
             PRODUCT RANGE
           </h2>
-          <p className="text-center text-muted-foreground mb-16">
+          <p className="text-center text-muted-foreground mb-16 text-lg">
             We Have 4 Different Product Ranges And 14 Products.
           </p>
           
@@ -101,10 +101,10 @@ const Shop = () => {
             {productRanges.map((range, index) => (
               <Card 
                 key={index}
-                className={`aspect-[3/4] bg-gradient-to-br ${range.gradient} border-none rounded-3xl flex items-center justify-center relative overflow-hidden hover-lift hover-glow animate-fade-up`}
+                className="aspect-[3/4] gradient-gold-shine border-2 border-primary/30 rounded-3xl flex items-center justify-center relative overflow-hidden hover-lift hover-glow animate-fade-up glow-border"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <span className="font-playfair text-9xl text-gray-900 font-bold">
+                <span className="font-playfair text-9xl text-secondary font-bold drop-shadow-[0_0_10px_rgba(0,0,0,0.5)]">
                   {range.letter}
                 </span>
               </Card>
@@ -117,7 +117,7 @@ const Shop = () => {
               {basicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`glass-effect glow-border rounded-3xl p-6 space-y-4 hover-lift hover-glow animate-fade-up`}
+                className="glass-gold glow-border rounded-3xl p-6 space-y-4 hover-lift hover-glow hover-gold-shine animate-fade-up border-2 border-primary/20"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                   <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6`}>
@@ -134,11 +134,11 @@ const Shop = () => {
                   </div>
                   
                   {product.available ? (
-                    <Button className="w-full gradient-primary text-white hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] font-bold border-0">
+                    <Button className="w-full gradient-gold-shine text-secondary hover:shadow-[0_0_40px_hsl(var(--primary)/0.8)] font-bold border-0 hover-lift">
                       BUY
                     </Button>
                   ) : (
-                    <Button className="w-full gradient-secondary text-white hover:shadow-[0_0_30px_hsl(var(--secondary)/0.6)] font-bold border-0">
+                    <Button className="w-full bg-secondary text-primary hover:bg-secondary/80 hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] font-bold border border-primary">
                       SEE MORE
                     </Button>
                   )}
@@ -148,7 +148,7 @@ const Shop = () => {
           </div>
 
           {/* Epic Range Section */}
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+          <h2 className="text-4xl font-bold text-center mb-12 text-gold-gradient drop-shadow-[0_0_20px_rgba(255,215,0,0.3)]">
             EPIC RANGE
           </h2>
           
@@ -156,7 +156,7 @@ const Shop = () => {
             {epicProducts.map((product, index) => (
               <Card 
                 key={index}
-                className={`gradient-secondary glow-border rounded-3xl p-6 space-y-4 hover-lift hover-glow animate-fade-up`}
+                className="gradient-black-gold glow-border rounded-3xl p-6 space-y-4 hover-lift hover-glow hover-gold-shine animate-fade-up border-2 border-primary"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <Card className={`aspect-[3/2] ${product.bgColor} ${product.textColor} rounded-2xl border-none flex flex-col items-center justify-center p-6 relative`}>
@@ -174,11 +174,11 @@ const Shop = () => {
                 </div>
                 
                 {product.available ? (
-                  <Button className="w-full gradient-primary text-white hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] font-bold border-0">
+                  <Button className="w-full gradient-gold-shine text-secondary hover:shadow-[0_0_40px_hsl(var(--primary)/0.8)] font-bold border-0 hover-lift">
                     BUY
                   </Button>
                 ) : (
-                  <Button className="w-full bg-card text-foreground hover:bg-card/80 font-bold border border-border">
+                  <Button className="w-full bg-secondary text-primary hover:bg-secondary/80 hover:shadow-[0_0_30px_hsl(var(--primary)/0.6)] font-bold border-2 border-primary hover-lift">
                     SEE MORE
                   </Button>
                 )}
