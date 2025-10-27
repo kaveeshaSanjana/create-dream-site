@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import { AccessControl, UserRole } from '@/utils/permissions';
@@ -28,6 +29,8 @@ const HomeworkSubmissionDetails = () => {
   const [selectedSubmission, setSelectedSubmission] = useState<HomeworkSubmission | null>(null);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [viewDialogOpen, setViewDialogOpen] = useState(false);
+  const [viewSubmission, setViewSubmission] = useState<HomeworkSubmission | null>(null);
 
   const loadHomework = async () => {
     if (!homeworkId) return;
@@ -102,6 +105,11 @@ const HomeworkSubmissionDetails = () => {
   // Check if user can upload corrections (InstituteAdmin or Teacher only)
   const canUploadCorrections = ['InstituteAdmin', 'Teacher'].includes(instituteRole);
 
+  const handleViewDetails = (submission: HomeworkSubmission) => {
+    setViewSubmission(submission);
+    setViewDialogOpen(true);
+  };
+
   // MUI table columns for submissions
   const submissionColumns: {
     id: string;
@@ -111,63 +119,44 @@ const HomeworkSubmissionDetails = () => {
     format?: (value: any, row?: any) => React.ReactNode;
   }[] = [
     {
-      id: 'student',
-      label: 'Student',
-      minWidth: 200,
-      format: (_val, row) => (
-        <div className="flex items-center gap-2">
-          <span className="font-medium">{row?.student?.firstName} {row?.student?.lastName}</span>
-          <Badge variant={row?.isActive ? 'default' : 'secondary'}>
-            {row?.isActive ? 'Active' : 'Inactive'}
-          </Badge>
-        </div>
-      ),
+      id: 'studentId',
+      label: 'Student ID',
+      minWidth: 120,
+      format: (val) => val || '-',
     },
     {
       id: 'submissionDate',
-      label: 'Submitted',
+      label: 'Submission Date',
       minWidth: 170,
       format: (val) => formatDate(val),
     },
     {
+      id: 'fileUrl',
+      label: 'File URL',
+      minWidth: 200,
+      format: (val) => val ? <span className="truncate block max-w-[200px]" title={val}>{val}</span> : '-',
+    },
+    {
+      id: 'teacherCorrectionFileUrl',
+      label: 'Correction URL',
+      minWidth: 200,
+      format: (val) => val ? <span className="truncate block max-w-[200px]" title={val}>{val}</span> : '-',
+    },
+    {
       id: 'remarks',
-      label: 'Notes',
+      label: 'Remarks',
       minWidth: 220,
       format: (val) => val ? <span className="line-clamp-2">{val}</span> : '-',
     },
     {
-      id: 'fileUrl',
-      label: 'File',
-      minWidth: 120,
-      format: (val) => val ? (
-        <Button size="sm" variant="outline" onClick={() => window.open(val, '_blank')}>
-          <ExternalLink className="h-3 w-3 mr-1" />
-          View
-        </Button>
-      ) : '-',
-    },
-    {
-      id: 'teacherCorrectionFileUrl',
-      label: 'Correction',
-      minWidth: 140,
-      format: (val) => val ? (
-        <Button size="sm" variant="outline" onClick={() => window.open(val, '_blank')}>
-          <ExternalLink className="h-3 w-3 mr-1" />
-          View
-        </Button>
-      ) : '-',
-    },
-    {
-      id: 'createdAt',
-      label: 'Created',
-      minWidth: 170,
-      format: (val) => formatDate(val),
-    },
-    {
-      id: 'updatedAt',
-      label: 'Updated',
-      minWidth: 170,
-      format: (val, row) => row?.createdAt !== val ? formatDate(val) : '-',
+      id: 'isActive',
+      label: 'Status',
+      minWidth: 100,
+      format: (val) => (
+        <Badge variant={val ? 'default' : 'secondary'}>
+          {val ? 'Active' : 'Inactive'}
+        </Badge>
+      ),
     },
   ];
 
@@ -319,6 +308,7 @@ const HomeworkSubmissionDetails = () => {
                 onRowsPerPageChange={(newRows) => { setRowsPerPage(newRows); setPage(0); }}
                 rowsPerPageOptions={[10, 25, 50, 100]}
                 sectionType="homework"
+                onView={(row: HomeworkSubmission) => handleViewDetails(row)}
                 customActions={
                   canUploadCorrections
                     ? [{
@@ -333,6 +323,92 @@ const HomeworkSubmissionDetails = () => {
             )}
           </CardContent>
         </Card>
+
+        {/* View Details Dialog */}
+        {viewSubmission && (
+          <Dialog open={viewDialogOpen} onOpenChange={setViewDialogOpen}>
+            <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>Submission Details</DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Submission ID</label>
+                    <p className="mt-1">{viewSubmission.id}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Student ID</label>
+                    <p className="mt-1">{viewSubmission.studentId}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Student Name</label>
+                    <p className="mt-1">{viewSubmission.student?.firstName} {viewSubmission.student?.lastName}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Status</label>
+                    <p className="mt-1">
+                      <Badge variant={viewSubmission.isActive ? 'default' : 'secondary'}>
+                        {viewSubmission.isActive ? 'Active' : 'Inactive'}
+                      </Badge>
+                    </p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Submission Date</label>
+                    <p className="mt-1">{formatDate(viewSubmission.submissionDate)}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Created At</label>
+                    <p className="mt-1">{formatDate(viewSubmission.createdAt)}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Updated At</label>
+                    <p className="mt-1">{formatDate(viewSubmission.updatedAt)}</p>
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-muted-foreground">Homework ID</label>
+                    <p className="mt-1">{viewSubmission.homeworkId}</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="text-sm font-medium text-muted-foreground">Remarks</label>
+                  <p className="mt-1 p-3 bg-muted/50 rounded-md">{viewSubmission.remarks || 'No remarks'}</p>
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-muted-foreground">Submitted File URL</label>
+                  <div className="mt-1 flex items-center gap-2">
+                    <p className="flex-1 p-2 bg-muted/50 rounded-md text-sm truncate" title={viewSubmission.fileUrl}>
+                      {viewSubmission.fileUrl || 'No file'}
+                    </p>
+                    {viewSubmission.fileUrl && (
+                      <Button size="sm" variant="outline" onClick={() => window.open(viewSubmission.fileUrl, '_blank')}>
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Open
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="text-sm font-medium text-muted-foreground">Teacher Correction File URL</label>
+                  <div className="mt-1 flex items-center gap-2">
+                    <p className="flex-1 p-2 bg-muted/50 rounded-md text-sm truncate" title={viewSubmission.teacherCorrectionFileUrl}>
+                      {viewSubmission.teacherCorrectionFileUrl || 'No correction file'}
+                    </p>
+                    {viewSubmission.teacherCorrectionFileUrl && (
+                      <Button size="sm" variant="outline" onClick={() => window.open(viewSubmission.teacherCorrectionFileUrl, '_blank')}>
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Open
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+        )}
 
         {/* Correction Upload Dialog */}
         {selectedSubmission && (
