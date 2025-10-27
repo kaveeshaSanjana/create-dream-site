@@ -1,16 +1,21 @@
-import React from 'react';
-import AppContent from '@/components/AppContent';
+import Navigation from "@/components/Navigation";
+import Hero from "@/components/Hero";
+import NFCSection from "@/components/NFCSection";
+import PackageSection from "@/components/PackageSection";
+import ProductsSection from "@/components/ProductsSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
-  console.log('Index component rendering');
-  
-  // Add error boundary to catch any rendering errors
-  try {
-    return <AppContent />;
-  } catch (error) {
-    console.error('Error in Index component:', error);
-    return <div>Error loading application. Please check console for details.</div>;
-  }
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <Hero />
+      <NFCSection />
+      <PackageSection />
+      <ProductsSection />
+      <Footer />
+    </div>
+  );
 };
 
 export default Index;
