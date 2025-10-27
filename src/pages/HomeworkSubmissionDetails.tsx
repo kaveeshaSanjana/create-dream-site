@@ -133,14 +133,30 @@ const HomeworkSubmissionDetails = () => {
     {
       id: 'fileUrl',
       label: 'File URL',
-      minWidth: 200,
-      format: (val) => val ? <span className="truncate block max-w-[200px]" title={val}>{val}</span> : '-',
+      minWidth: 150,
+      format: (val) => val ? (
+        <Button 
+          size="sm" 
+          className="bg-blue-600 hover:bg-blue-700 text-white"
+          onClick={() => window.open(val, '_blank')}
+        >
+          HW File
+        </Button>
+      ) : '-',
     },
     {
       id: 'teacherCorrectionFileUrl',
       label: 'Correction URL',
-      minWidth: 200,
-      format: (val) => val ? <span className="truncate block max-w-[200px]" title={val}>{val}</span> : '-',
+      minWidth: 150,
+      format: (val) => val ? (
+        <Button 
+          size="sm" 
+          className="bg-yellow-600 hover:bg-yellow-700 text-white"
+          onClick={() => window.open(val, '_blank')}
+        >
+          Correction File
+        </Button>
+      ) : '-',
     },
     {
       id: 'remarks',
@@ -316,6 +332,7 @@ const HomeworkSubmissionDetails = () => {
                         action: (row: HomeworkSubmission) => handleCorrectionClick(row),
                         icon: <Edit className="h-3 w-3" />,
                         variant: 'outline' as const,
+                        className: 'border-red-600 text-red-600 hover:bg-red-600 hover:text-white',
                       }]
                     : []
                 }
@@ -415,6 +432,7 @@ const HomeworkSubmissionDetails = () => {
           <UploadCorrectionDialog
             submissionId={selectedSubmission.id}
             studentName={`${selectedSubmission.student?.firstName} ${selectedSubmission.student?.lastName}`}
+            submission={selectedSubmission}
             isOpen={correctionDialogOpen}
             onClose={() => setCorrectionDialogOpen(false)}
             onSuccess={handleCorrectionSuccess}
